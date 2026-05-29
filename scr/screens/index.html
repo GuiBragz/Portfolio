@@ -24,21 +24,25 @@
         box-sizing: border-box;
       }
       :root {
-        --bg: #070707;
-        --bg2: #0c0c0c;
-        --bg3: #111111;
-        --bg4: #161616;
-        --red: #dc2626;
-        --red2: #ff3a3a;
-        --red3: rgba(220, 38, 38, 0.12);
-        --red-border: rgba(220, 38, 38, 0.28);
-        --red-glow: rgba(220, 38, 38, 0.1);
-        --text: #f4f0ed;
-        --text2: #c8c4c0;
-        --muted: #8a8680;
-        --muted2: #5c5855;
-        --border: rgba(255, 255, 255, 0.07);
-        --border2: rgba(255, 255, 255, 0.03);
+        /* Fundo levemente mais claro para melhorar contraste */
+        --bg: #121212;
+        --bg2: #1e1e1e;
+        --bg3: #252525;
+        --bg4: #2a2a2a;
+        --red: #ef4444; /* Vermelho mais vivo para melhor leitura */
+        --red2: #ff6b6b;
+        --red3: rgba(239, 68, 68, 0.15);
+        --red-border: rgba(239, 68, 68, 0.35);
+        --red-glow: rgba(239, 68, 68, 0.18);
+
+        /* Textos mais claros para baixa visão */
+        --text: #ffffff;
+        --text2: #e5e5e5;
+        --muted: #b3b3b3;
+        --muted2: #999999;
+
+        --border: rgba(255, 255, 255, 0.1);
+        --border2: rgba(255, 255, 255, 0.05);
         --font: "DM Sans", system-ui, sans-serif;
         --mono: "JetBrains Mono", "Fira Code", monospace;
         --display: "Bebas Neue", impact, sans-serif;
@@ -51,15 +55,15 @@
         color: var(--text);
         font-family: var(--font);
         overflow-x: hidden;
-        line-height: 1.6;
+        line-height: 1.7; /* Aumentado um pouco para legibilidade */
         font-size: 16px;
       }
       ::selection {
-        background: rgba(220, 38, 38, 0.35);
+        background: rgba(239, 68, 68, 0.35);
         color: var(--text);
       }
       ::-webkit-scrollbar {
-        width: 3px;
+        width: 4px;
       }
       ::-webkit-scrollbar-track {
         background: var(--bg);
@@ -76,7 +80,7 @@
         inset: 0;
         pointer-events: none;
         z-index: 9999;
-        opacity: 0.04;
+        opacity: 0.03;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       }
 
@@ -85,7 +89,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        height: 2px;
+        height: 3px;
         background: linear-gradient(90deg, var(--red), var(--red2));
         z-index: 1001;
         width: 0;
@@ -104,7 +108,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 6%;
-        background: rgba(7, 7, 7, 0.9);
+        background: rgba(18, 18, 18, 0.9);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border);
       }
@@ -126,7 +130,7 @@
         font-size: 1rem;
         color: #fff;
         letter-spacing: 0.02em;
-        box-shadow: 0 0 18px rgba(220, 38, 38, 0.45);
+        box-shadow: 0 0 18px rgba(239, 68, 68, 0.45);
         overflow: hidden;
       }
       .nl-badge img {
@@ -207,7 +211,7 @@
       }
       .nav-lang:hover {
         color: var(--text);
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
       }
       .nav-cta {
         background: var(--red);
@@ -220,7 +224,7 @@
         text-transform: uppercase;
         text-decoration: none;
         font-family: var(--mono);
-        box-shadow: 0 0 18px rgba(220, 38, 38, 0.35);
+        box-shadow: 0 0 18px rgba(239, 68, 68, 0.35);
         transition: all 0.2s;
       }
       .nav-cta:hover {
@@ -259,7 +263,7 @@
         transform: translateY(24px);
         transition: transform 0.3s;
         box-shadow:
-          0 0 80px rgba(220, 38, 38, 0.15),
+          0 0 80px rgba(239, 68, 68, 0.15),
           0 40px 80px rgba(0, 0, 0, 0.5);
       }
       .modal-overlay.open .modal-content {
@@ -293,7 +297,7 @@
       .cen-prof-head {
         background: linear-gradient(
           135deg,
-          rgba(220, 38, 38, 0.18),
+          rgba(239, 68, 68, 0.18),
           rgba(0, 0, 0, 0.6)
         );
         padding: 2.5rem 2rem;
@@ -317,7 +321,7 @@
         width: 84px;
         height: 84px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--red), #7f1d1d);
+        background: linear-gradient(135deg, var(--red), #991b1b);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -325,7 +329,7 @@
         font-size: 2rem;
         color: #fff;
         margin: 0 auto 1rem;
-        box-shadow: 0 0 30px rgba(220, 38, 38, 0.35);
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.35);
         overflow: hidden;
       }
       .cen-name {
@@ -388,7 +392,7 @@
         color: var(--muted);
         text-decoration: none;
         transition: color 0.2s;
-        word-break: break-all; /* Fix para não estourar com e-mails longos */
+        word-break: break-all;
       }
       .cen-row a:hover {
         color: var(--red);
@@ -406,7 +410,7 @@
         text-decoration: none;
         letter-spacing: 0.06em;
         font-family: var(--mono);
-        box-shadow: 0 4px 16px rgba(220, 38, 38, 0.25);
+        box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
         transition: opacity 0.2s;
       }
       .cen-dl:hover {
@@ -433,7 +437,7 @@
         font-size: 1rem;
       }
       .mb-text {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--muted);
         line-height: 1.8;
       }
@@ -550,8 +554,8 @@
         z-index: 0;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(220, 38, 38, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+          linear-gradient(rgba(239, 68, 68, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(239, 68, 68, 0.05) 1px, transparent 1px);
         background-size: 60px 60px;
         mask-image: radial-gradient(
           ellipse 90% 90% at 50% 50%,
@@ -566,21 +570,21 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%; /* Fix para overflow-x escondido */
+        width: 100%;
         max-width: 600px;
         height: 100vw;
         max-height: 600px;
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(220, 38, 38, 0.07) 0%,
+          rgba(239, 68, 68, 0.08) 0%,
           transparent 70%
         );
         pointer-events: none;
         z-index: 0;
       }
 
-      /* NEW HERO LAYOUT CLASSES */
+      /* HERO LAYOUT */
       .hero-content {
         position: relative;
         z-index: 2;
@@ -609,7 +613,7 @@
       }
       .float-icon {
         position: absolute;
-        background: rgba(12, 12, 12, 0.9);
+        background: rgba(30, 30, 30, 0.9);
         border: 1px solid var(--border);
         border-radius: 10px;
         width: 50px;
@@ -627,7 +631,7 @@
       .float-icon.rock {
         font-size: 1.6rem;
         border-color: var(--red-border);
-        box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
       }
       .fi-1 {
         top: 18%;
@@ -699,8 +703,8 @@
         background: linear-gradient(135deg, #1a0a0a, var(--bg3));
         border: 2px solid var(--red);
         box-shadow:
-          0 0 40px rgba(220, 38, 38, 0.25),
-          0 0 80px rgba(220, 38, 38, 0.1);
+          0 0 40px rgba(239, 68, 68, 0.25),
+          0 0 80px rgba(239, 68, 68, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -715,13 +719,13 @@
         position: absolute;
         inset: -10px;
         border-radius: 50%;
-        border: 1px dashed rgba(220, 38, 38, 0.3);
+        border: 1px dashed rgba(239, 68, 68, 0.3);
         animation: haloSpin 18s linear infinite;
       }
       .halo2 {
         inset: -22px;
         border-style: dotted;
-        border-color: rgba(220, 38, 38, 0.15);
+        border-color: rgba(239, 68, 68, 0.15);
         animation-duration: 28s;
         animation-direction: reverse;
       }
@@ -736,8 +740,8 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(16, 185, 129, 0.08);
-        border: 1px solid rgba(16, 185, 129, 0.2);
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.25);
         color: #10b981;
         padding: 0.3rem 0.9rem;
         border-radius: 100px;
@@ -892,7 +896,7 @@
         gap: 0.5rem;
         border: none;
         cursor: pointer;
-        box-shadow: 0 4px 20px rgba(220, 38, 38, 0.35);
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.35);
         transition: all 0.2s;
         font-family: var(--mono);
         letter-spacing: 0.04em;
@@ -900,7 +904,7 @@
       .btn-red:hover {
         opacity: 0.85;
         transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(220, 38, 38, 0.45);
+        box-shadow: 0 8px 28px rgba(239, 68, 68, 0.45);
       }
       .btn-ghost {
         background: transparent;
@@ -920,8 +924,9 @@
         letter-spacing: 0.04em;
       }
       .btn-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.35);
         transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.05);
       }
       .hero-socials {
         display: flex;
@@ -947,7 +952,7 @@
       .soc:hover {
         color: var(--red);
         border-color: var(--red-border);
-        box-shadow: 0 0 14px rgba(220, 38, 38, 0.2);
+        box-shadow: 0 0 14px rgba(239, 68, 68, 0.2);
       }
 
       .scroll-ind {
@@ -1007,7 +1012,7 @@
         color: var(--red);
         letter-spacing: 0.22em;
         text-transform: uppercase;
-        white-space: nowrap; /* Será sobrescrito no mobile */
+        white-space: nowrap;
       }
       .rd-dot {
         width: 5px;
@@ -1154,7 +1159,7 @@
         color: var(--muted);
         text-decoration: none;
         transition: color 0.2s;
-        word-break: break-all; /* Fix para não estourar com e-mails longos */
+        word-break: break-all;
       }
       .cr a:hover {
         color: var(--red);
@@ -1260,7 +1265,7 @@
         gap: 0.5rem;
       }
       .sk-pill {
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.05);
         border: 1px solid var(--border);
         border-radius: 5px;
         padding: 0.35rem 0.75rem;
@@ -1397,11 +1402,11 @@
         list-style: none;
       }
       .ec-bullets li {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--muted);
         line-height: 1.75;
         padding: 0.35rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         display: flex;
         gap: 0.7rem;
       }
@@ -1437,7 +1442,7 @@
         height: 160px;
         background: linear-gradient(
           135deg,
-          rgba(220, 38, 38, 0.1),
+          rgba(239, 68, 68, 0.1),
           rgba(0, 0, 0, 0.5)
         );
         display: flex;
@@ -1453,14 +1458,14 @@
         inset: 0;
         background: radial-gradient(
           circle at 50% 50%,
-          rgba(220, 38, 38, 0.12),
+          rgba(239, 68, 68, 0.12),
           transparent 70%
         );
       }
       .pj-thumb-num {
         font-family: var(--display);
         font-size: 7rem;
-        color: rgba(220, 38, 38, 0.1);
+        color: rgba(239, 68, 68, 0.1);
         line-height: 1;
         position: relative;
         z-index: 1;
@@ -1491,7 +1496,7 @@
         font-weight: 700;
       }
       .pj-desc {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--muted);
         line-height: 1.8;
         margin-bottom: 1.3rem;
@@ -1553,7 +1558,7 @@
         top: 1.5rem;
         left: 1.8rem;
         font-size: 3.5rem;
-        color: rgba(220, 38, 38, 0.08);
+        color: rgba(239, 68, 68, 0.1);
         font-family: var(--display);
         line-height: 1;
       }
@@ -1704,7 +1709,7 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow:
-          0 0 50px rgba(220, 38, 38, 0.07),
+          0 0 50px rgba(239, 68, 68, 0.07),
           0 20px 50px rgba(0, 0, 0, 0.4);
       }
       .it-hdr {
@@ -1756,7 +1761,7 @@
         width: 3px;
       }
       .it-out::-webkit-scrollbar-thumb {
-        background: rgba(220, 38, 38, 0.4);
+        background: rgba(239, 68, 68, 0.4);
       }
       .it-pr {
         color: var(--red) !important;
@@ -1809,7 +1814,7 @@
         margin-bottom: 1rem;
       }
       .cg-left p {
-        font-size: 1rem;
+        font-size: 1.05rem;
         color: var(--muted);
         line-height: 1.9;
         margin-bottom: 1.8rem;
@@ -1828,10 +1833,10 @@
         border: 1px solid var(--border);
         border-radius: 8px;
         text-decoration: none;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--muted);
         transition: all 0.2s;
-        word-break: break-all; /* Fix para não estourar com e-mails longos */
+        word-break: break-all;
       }
       .cl-row:hover {
         border-color: var(--red-border);
@@ -1853,7 +1858,7 @@
       }
       .fg label {
         font-family: var(--mono);
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         color: var(--red);
         font-weight: 700;
         letter-spacing: 0.18em;
@@ -1905,7 +1910,7 @@
       }
       .footer-brand p {
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         max-width: 280px;
         line-height: 1.7;
       }
@@ -1926,7 +1931,7 @@
       .footer-col a {
         color: var(--muted);
         text-decoration: none;
-        font-size: 0.88rem;
+        font-size: 0.95rem;
         transition: color 0.2s;
       }
       .footer-col a:hover {
@@ -2033,7 +2038,6 @@
         .hero-title {
           font-size: clamp(4rem, 10vw, 5.5rem);
         }
-
         .sobre-grid,
         .skills-grid,
         .contact-grid,
@@ -2096,7 +2100,7 @@
           padding: 1.5rem 1rem;
         }
         .rd-text {
-          white-space: normal; /* Remove nowrap no mobile */
+          white-space: normal;
           text-align: center;
           font-size: 0.65rem;
           line-height: 1.4;
@@ -2143,7 +2147,6 @@
   <body>
     <div id="prog"></div>
 
-    <!-- MODAL RECRUTADOR -->
     <div id="modal-recrutador" class="modal-overlay">
       <div class="modal-content">
         <button class="modal-close" onclick="toggleModal()">✕</button>
@@ -2196,8 +2199,8 @@
               </div>
             </div>
             <a
-              href="/assets/cv-gui-braga.pdf"
-              download="CV_GuiBraga.pdf"
+              href="https://drive.google.com/file/d/1rBidOr-OJpoTMP4DL7sw8QnsIj37g3sZ/view?usp=sharing"
+              target="_blank"
               class="cen-dl"
               data-t="cen_dl"
               >⬇ Baixar Currículo (PDF)</a
@@ -2215,8 +2218,9 @@
                 <strong>Análise e Desenvolvimento de Sistemas (UNIBRA)</strong>
                 e cursando Pós-Graduação em
                 <strong>Engenharia de Software</strong>. Experiência de mercado
-                na área administrativa/hospitalar, garantindo visão de negócio e
-                estabilidade sob pressão.
+                atuando de forma independente como freelancer e na área
+                administrativa, garantindo visão de negócio e estabilidade sob
+                pressão.
               </p>
             </div>
             <div class="mb-panel">
@@ -2264,9 +2268,9 @@
                   <div class="ct-body">
                     <div class="ct-period">2024 – ATUAL</div>
                     <div class="ct-title" data-t="ct2">
-                      Recepcionista Ambulatorial / Suporte T.I
+                      Desenvolvedor Freelancer
                     </div>
-                    <div class="ct-org">Hapvida NorteDame</div>
+                    <div class="ct-org">Autônomo</div>
                   </div>
                 </div>
                 <div class="ct-item">
@@ -2284,7 +2288,6 @@
       </div>
     </div>
 
-    <!-- NAV -->
     <nav id="nav">
       <a href="#inicio" class="nav-logo">
         <div class="nl-badge">
@@ -2331,10 +2334,8 @@
       </div>
     </nav>
 
-    <!-- HERO -->
     <section id="inicio">
       <div class="float-area">
-        <!-- React -->
         <div class="float-icon fi-1" title="React">
           <svg viewBox="0 0 128 128">
             <g fill="#61DAFB">
@@ -2345,7 +2346,6 @@
             </g>
           </svg>
         </div>
-        <!-- Node -->
         <div class="float-icon fi-2" title="Node.js">
           <svg viewBox="0 0 128 128">
             <path
@@ -2354,7 +2354,6 @@
             />
           </svg>
         </div>
-        <!-- TypeScript -->
         <div class="float-icon fi-3" title="TypeScript">
           <svg viewBox="0 0 128 128">
             <path
@@ -2363,7 +2362,6 @@
             />
           </svg>
         </div>
-        <!-- Python -->
         <div class="float-icon fi-4" title="Python">
           <svg viewBox="0 0 128 128">
             <path
@@ -2376,9 +2374,7 @@
             />
           </svg>
         </div>
-        <!-- Guitar (rock!) -->
         <div class="float-icon rock fi-5" title="Rock 🤘">🎸</div>
-        <!-- MySQL -->
         <div class="float-icon fi-6" title="MySQL">
           <svg viewBox="0 0 128 128">
             <path
@@ -2387,7 +2383,6 @@
             />
           </svg>
         </div>
-        <!-- Git -->
         <div class="float-icon fi-7" title="Git">
           <svg viewBox="0 0 128 128">
             <path
@@ -2403,7 +2398,6 @@
           <div class="hero-status" data-t="cen_avail">
             DISPONÍVEL PARA CONTRATAÇÃO
           </div>
-
           <h1 class="hero-title">
             <span class="ht-white">GUI</span>
             <span class="ht-red">BRAGA</span>
@@ -2436,8 +2430,8 @@
               >Ver projetos →</a
             >
             <a
-              href="/assets/cv-gui-braga.pdf"
-              download="CV_GuiBraga.pdf"
+              href="https://drive.google.com/file/d/1rBidOr-OJpoTMP4DL7sw8QnsIj37g3sZ/view?usp=sharing"
+              target="_blank"
               class="btn-ghost"
               data-t="hero_cv"
             >
@@ -2458,23 +2452,26 @@
           </div>
 
           <div class="hero-socials">
-            <a href="https://github.com/GuiBragz" target="_blank" class="soc"
-              ><svg fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://github.com/GuiBragz" target="_blank" class="soc">
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                /></svg
-            ></a>
+                />
+              </svg>
+            </a>
             <a
               href="https://www.linkedin.com/in/guilherme-braga-152a65374/"
               target="_blank"
               class="soc"
-              ><svg fill="currentColor" viewBox="0 0 24 24">
+            >
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                /></svg
-            ></a>
-            <a href="mailto:contatoguilhermebraga16@gmail.com" class="soc"
-              ><svg
+                />
+              </svg>
+            </a>
+            <a href="mailto:contatoguilhermebraga16@gmail.com" class="soc">
+              <svg
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -2483,8 +2480,9 @@
                 <path
                   d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
                 />
-                <polyline points="22,6 12,13 2,6" /></svg
-            ></a>
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -2507,7 +2505,6 @@
       <div class="scroll-ind">scroll</div>
     </section>
 
-    <!-- DIVIDER -->
     <div class="red-div fi">
       <div class="rd-line"></div>
       <div class="rd-dot"></div>
@@ -2518,7 +2515,6 @@
       <div class="rd-line"></div>
     </div>
 
-    <!-- SOBRE -->
     <section id="sobre" class="sec">
       <div class="sobre-grid">
         <div>
@@ -2537,9 +2533,9 @@
             <p data-t="s_p2">
               Além da proficiência técnica, trago na bagagem vivências em
               ambientes corporativos de alta demanda. Atuei no setor
-              administrativo e financeiro da Asa de Prata e no ambiente
-              hospitalar da Hapvida, forjando soft skills como resolução rápida
-              de problemas sob pressão e forte colaboração em equipe.
+              administrativo e financeiro da Asa de Prata e de forma
+              independente, forjando soft skills como resolução rápida de
+              problemas sob pressão e forte colaboração em equipe.
             </p>
             <p data-t="s_p3">
               Desenvolvo desde sistemas web focados em produtividade, até
@@ -2553,8 +2549,8 @@
               >Ver projetos →</a
             >
             <a
-              href="/assets/cv-gui-braga.pdf"
-              download="CV_GuiBraga.pdf"
+              href="https://drive.google.com/file/d/1rBidOr-OJpoTMP4DL7sw8QnsIj37g3sZ/view?usp=sharing"
+              target="_blank"
               class="btn-ghost"
               data-t="s_btn2"
               >Baixar CV</a
@@ -2622,7 +2618,6 @@
       <div class="rd-line"></div>
     </div>
 
-    <!-- SKILLS -->
     <section class="sec sec-alt">
       <div class="skills-grid fi">
         <div>
@@ -2748,13 +2743,19 @@
                   <div class="cert-yr">2024</div>
                 </div>
               </div>
+              <a
+                href="certificacoes.html"
+                class="btn-ghost"
+                style="margin-top: 1rem; width: 100%; justify-content: center"
+                data-t="btn_all_certs"
+                >Ver todas as certificações →</a
+              >
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
     <section class="sec" id="experiencia">
       <div class="sh fi">
         <div class="sh-eyebrow" data-t="exp_ey">Experiência profissional</div>
@@ -2764,22 +2765,22 @@
         <div class="exp-card fi fd1">
           <div class="ec-l">
             <div class="ec-period">2024 – ATUAL</div>
-            <div class="ec-co">Hapvida NorteDame</div>
-            <div class="ec-role" data-t="exp1r">Recepcionista Ambulatorial</div>
+            <div class="ec-co">Autônomo</div>
+            <div class="ec-role" data-t="exp1r">Desenvolvedor Freelancer</div>
             <div class="ec-dot"></div>
           </div>
           <ul class="ec-bullets">
             <li data-t="exp1b1">
-              Atuação com sistemas internos de gestão hospitalar, garantindo a
-              integridade dos dados de prontuários.
+              Desenvolvimento de soluções web e landing pages focadas em alta
+              conversão e performance.
             </li>
             <li data-t="exp1b2">
-              Prestação de apoio ativo na resolução de problemas de hardware e
-              software da unidade.
+              Criação de sistemas personalizados para clientes, automatizando
+              processos manuais.
             </li>
             <li data-t="exp1b3">
-              Desenvolvimento de comunicação assertiva e resolução rápida de
-              problemas sob alta pressão.
+              Atuação direta com clientes para levantamento de requisitos e
+              entrega contínua.
             </li>
           </ul>
         </div>
@@ -2804,7 +2805,6 @@
       </div>
     </section>
 
-    <!-- PROJETOS -->
     <section id="projetos" class="sec sec-alt">
       <div class="sh fi">
         <div class="sh-eyebrow" data-t="proj_ey">Trabalhos recentes</div>
@@ -2922,6 +2922,12 @@
           </div>
         </div>
       </div>
+
+      <div style="text-align: center; margin-top: 3.5rem">
+        <a href="projetos.html" class="btn-ghost" data-t="btn_all_proj"
+          >Ver todos os projetos →</a
+        >
+      </div>
     </section>
 
     <div class="red-div fi">
@@ -2932,7 +2938,6 @@
       <div class="rd-line"></div>
     </div>
 
-    <!-- FEEDBACKS -->
     <section class="sec">
       <div class="sh fi">
         <div class="sh-eyebrow" data-t="fb_ey">Prova social</div>
@@ -2974,7 +2979,6 @@
       </div>
     </section>
 
-    <!-- CENTRAL INTERATIVA -->
     <section id="central" class="sec sec-alt">
       <div class="sh fi">
         <div class="sh-eyebrow" data-t="cen_ey">// acesso interativo</div>
@@ -2998,7 +3002,7 @@
             style="
               color: var(--muted);
               margin-bottom: 0.5rem;
-              font-size: 0.9rem;
+              font-size: 0.95rem;
             "
             data-t="theme_txt"
           >
@@ -3007,38 +3011,38 @@
           <div class="color-picker">
             <button
               class="color-btn"
-              style="background: #dc2626"
-              onclick="changeTheme('#dc2626', '#ff3a3a')"
+              style="background: #ef4444"
+              onclick="changeTheme('#ef4444', '#ff6b6b')"
               title="Vermelho (padrão)"
             ></button>
             <button
               class="color-btn"
-              style="background: #2563eb"
-              onclick="changeTheme('#2563eb', '#60a5fa')"
+              style="background: #3b82f6"
+              onclick="changeTheme('#3b82f6', '#60a5fa')"
               title="Azul"
             ></button>
             <button
               class="color-btn"
-              style="background: #16a34a"
-              onclick="changeTheme('#16a34a', '#4ade80')"
+              style="background: #10b981"
+              onclick="changeTheme('#10b981', '#34d399')"
               title="Verde"
             ></button>
             <button
               class="color-btn"
-              style="background: #7c3aed"
-              onclick="changeTheme('#7c3aed', '#a78bfa')"
+              style="background: #8b5cf6"
+              onclick="changeTheme('#8b5cf6', '#a78bfa')"
               title="Roxo"
             ></button>
             <button
               class="color-btn"
-              style="background: #d97706"
-              onclick="changeTheme('#d97706', '#fbbf24')"
+              style="background: #f59e0b"
+              onclick="changeTheme('#f59e0b', '#fbbf24')"
               title="Âmbar"
             ></button>
             <button
               class="color-btn"
-              style="background: #db2777"
-              onclick="changeTheme('#db2777', '#f472b6')"
+              style="background: #ec4899"
+              onclick="changeTheme('#ec4899', '#f472b6')"
               title="Rosa"
             ></button>
           </div>
@@ -3107,7 +3111,6 @@
       </div>
     </section>
 
-    <!-- CONTATO -->
     <section id="contato" class="sec">
       <div class="sh fi">
         <div class="sh-eyebrow" data-t="ct_ey">Fale comigo</div>
@@ -3140,18 +3143,25 @@
           </div>
         </div>
         <div class="fi fd2">
-          <form class="cg-form" onsubmit="handleForm(event)">
+          <form class="cg-form" id="contactForm">
+            <input type="hidden" name="_captcha" value="false" />
             <div class="fg">
-              <label data-t="f_name">Nome</label
-              ><input type="text" required placeholder="Seu nome" />
+              <label data-t="f_name">Nome</label>
+              <input type="text" name="nome" required placeholder="Seu nome" />
             </div>
             <div class="fg">
-              <label data-t="f_email">Email</label
-              ><input type="email" required placeholder="seu@email.com" />
+              <label data-t="f_email">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="seu@email.com"
+              />
             </div>
             <div class="fg">
-              <label data-t="f_msg">Mensagem</label
-              ><textarea
+              <label data-t="f_msg">Mensagem</label>
+              <textarea
+                name="mensagem"
                 required
                 placeholder="Conta sobre o projeto ou oportunidade..."
               ></textarea>
@@ -3170,7 +3180,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="footer-grid">
         <div class="footer-brand">
@@ -3219,14 +3228,12 @@
       </div>
     </footer>
 
-    <!-- CHAT FAB (DIRETO PARA O WHATSAPP) -->
     <a
       href="https://wa.me/5581984232938?text=Olá,%20Guilherme!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
       target="_blank"
       class="chat-fab"
       title="Fale comigo no WhatsApp"
     >
-      <!-- Ícone do WhatsApp -->
       <svg viewBox="0 0 24 24">
         <path
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
@@ -3251,7 +3258,7 @@
           rd3: "O que dizem sobre mim",
           s_road: "A estrada",
           s_p1: "Sou um desenvolvedor web e mobile com <strong>mais de 3 anos de experiência</strong> na criação de soluções inteligentes e modernas para problemas complexos. Minha trajetória é fortemente marcada pela graduação recém-concluída em <strong>Análise e Desenvolvimento de Sistemas</strong> e pela pós-graduação em <strong>Engenharia de Software</strong>.",
-          s_p2: "Além da proficiência técnica, trago na bagagem vivências em ambientes corporativos de alta demanda. Atuei no setor administrativo e financeiro da Asa de Prata e no ambiente hospitalar da Hapvida, forjando soft skills como resolução rápida de problemas sob pressão e forte colaboração em equipe.",
+          s_p2: "Além da proficiência técnica, trago na bagagem vivências em ambientes corporativos de alta demanda. Atuei no setor administrativo e financeiro da Asa de Prata e de forma independente, forjando soft skills como resolução rápida de problemas sob pressão e forte colaboração em equipe.",
           s_p3: "Desenvolvo desde sistemas web focados em produtividade, até aplicações mobile complexas com integração de IA e Open Finance. Acredito na tecnologia como a principal ferramenta para empoderar usuários.",
           s_btn1: "Ver projetos →",
           s_btn2: "Baixar CV",
@@ -3277,13 +3284,13 @@
           c5: "Introdução à Python",
           exp_ey: "Experiência profissional",
           exp_title: "Onde já trabalhei",
-          exp1r: "Recepcionista Ambulatorial",
+          exp1r: "Desenvolvedor Freelancer",
           exp1b1:
-            "Atuação com sistemas internos de gestão hospitalar, garantindo a integridade dos dados de prontuários.",
+            "Desenvolvimento de soluções web e landing pages focadas em alta conversão e performance.",
           exp1b2:
-            "Prestação de apoio ativo na resolução de problemas de hardware e software da unidade.",
+            "Criação de sistemas personalizados para clientes, automatizando processos manuais.",
           exp1b3:
-            "Desenvolvimento de comunicação assertiva e resolução rápida de problemas sob alta pressão.",
+            "Atuação direta com clientes para levantamento de requisitos e entrega contínua.",
           exp2r: "Assistente Administrativo",
           exp2b1:
             "Organização e digitalização de documentos empresariais e registros contábeis.",
@@ -3314,11 +3321,11 @@
           cen_dl: "⬇ Baixar Currículo (PDF)",
           cen_summary_t: "Resumo Executivo",
           cen_summary:
-            "Desenvolvedor <strong>Full Stack</strong> com base acadêmica sólida, graduado em <strong>Análise e Desenvolvimento de Sistemas (UNIBRA)</strong> e cursando Pós-Graduação em <strong>Engenharia de Software</strong>. Experiência de mercado na área administrativa/hospitalar, garantindo visão de negócio e estabilidade sob pressão.",
+            "Desenvolvedor <strong>Full Stack</strong> com base acadêmica sólida, graduado em <strong>Análise e Desenvolvimento de Sistemas (UNIBRA)</strong> e cursando Pós-Graduação em <strong>Engenharia de Software</strong>. Experiência de mercado atuando de forma independente como freelancer e na área administrativa, garantindo visão de negócio e estabilidade sob pressão.",
           cen_stack_t: "Stack Principal",
           cen_tl_t: "Linha do Tempo",
           ct1: "Pós-Graduação em Engenharia de Software",
-          ct2: "Recepcionista Ambulatorial / Suporte T.I",
+          ct2: "Desenvolvedor Freelancer",
           ct3: "Graduação em ADS",
           ct_ey: "Fale comigo",
           ct_title: "Vamos trabalhar juntos?",
@@ -3337,6 +3344,8 @@
           pomo_task: "Foco Atual: Codar ouvindo Highway to Hell 🤘",
           pomo_start: "▶ Iniciar",
           pomo_reset: "↺ Reset",
+          btn_all_proj: "Ver todos os projetos →",
+          btn_all_certs: "Ver todas as certificações →",
           phrases: [
             "Desenvolvedor Web",
             "Desenvolvedor Full-stack",
@@ -3365,7 +3374,7 @@
           rd3: "What they say about me",
           s_road: "The road",
           s_p1: "I am a web and mobile developer with <strong>over 3 years of experience</strong> creating intelligent and modern solutions for complex problems. My journey is strongly marked by my recent graduation in <strong>Systems Analysis and Development</strong> and my post-grad in <strong>Software Engineering</strong>.",
-          s_p2: "Beyond technical proficiency, I bring experience from high-demand corporate environments. I worked in the administrative/financial sector at Asa de Prata and in the hospital environment at Hapvida, forging soft skills such as quick problem solving under pressure and strong teamwork.",
+          s_p2: "Beyond technical proficiency, I bring experience from high-demand corporate environments. I worked in the administrative/financial sector at Asa de Prata and independently as a freelancer, forging soft skills such as quick problem solving under pressure and strong teamwork.",
           s_p3: "I develop everything from productivity-focused web systems to complex mobile applications with AI integration and Open Finance. I believe in technology as the main tool to empower users.",
           s_btn1: "View projects →",
           s_btn2: "Download CV",
@@ -3391,13 +3400,13 @@
           c5: "Introduction to Python",
           exp_ey: "Professional experience",
           exp_title: "Where I've worked",
-          exp1r: "Outpatient Receptionist",
+          exp1r: "Freelance Developer",
           exp1b1:
-            "Acted with internal hospital management systems, ensuring the integrity of medical records.",
+            "Development of web solutions and landing pages focused on high conversion and performance.",
           exp1b2:
-            "Provided active support in solving hardware and software problems in the unit.",
+            "Creation of custom systems for clients, automating manual processes.",
           exp1b3:
-            "Developed assertive communication and quick problem solving under high pressure.",
+            "Direct work with clients for requirements gathering and continuous delivery.",
           exp2r: "Administrative Assistant",
           exp2b1:
             "Organization and digitization of corporate documents and accounting records.",
@@ -3428,11 +3437,11 @@
           cen_dl: "⬇ Download Resume (PDF)",
           cen_summary_t: "Executive Summary",
           cen_summary:
-            "<strong>Full Stack</strong> developer with a solid academic background, graduated in <strong>Systems Analysis and Development (UNIBRA)</strong> and currently pursuing a Post-Graduation in <strong>Software Engineering</strong>. Market experience in the administrative/hospital area, ensuring business vision and stability under pressure.",
+            "<strong>Full Stack</strong> developer with a solid academic background, graduated in <strong>Systems Analysis and Development (UNIBRA)</strong> and currently pursuing a Post-Graduation in <strong>Software Engineering</strong>. Market experience working independently as a freelancer and in the administrative area, ensuring business vision and stability under pressure.",
           cen_stack_t: "Core Stack",
           cen_tl_t: "Timeline",
           ct1: "Postgrad in Software Engineering",
-          ct2: "Outpatient Receptionist / IT Support",
+          ct2: "Freelance Developer",
           ct3: "Degree in Systems Analysis",
           ct_ey: "Talk to me",
           ct_title: "Let's work together?",
@@ -3452,6 +3461,8 @@
             "Current Focus: Coding while listening to Highway to Hell 🤘",
           pomo_start: "▶ Start",
           pomo_reset: "↺ Reset",
+          btn_all_proj: "View all projects →",
+          btn_all_certs: "View all certifications →",
           phrases: ["Web Developer", "Full-stack Developer", "Systems Analyst"],
           nowPlaying: [
             "Highway to Hell — AC/DC",
@@ -3603,12 +3614,12 @@
       // Terminal
       const CMDS = {
         help: () => `<br><span class="it-pr">Comandos disponíveis:</span>
-  <span class="it-pr">about</span>    → Sobre o Gui Braga
-  <span class="it-pr">skills</span>   → Tecnologias e ferramentas
+  <span class="it-pr">about</span>   → Sobre o Gui Braga
+  <span class="it-pr">skills</span>  → Tecnologias e ferramentas
   <span class="it-pr">projects</span> → Projetos em destaque
   <span class="it-pr">contact</span>  → Informações de contato
-  <span class="it-pr">clear</span>    → Limpar terminal
-  <span class="it-pr">rock</span>     → 🎸 Easter egg
+  <span class="it-pr">clear</span>   → Limpar terminal
+  <span class="it-pr">rock</span>    → 🎸 Easter egg
   <span class="it-pr">ask [msg]</span>→ Conversar com a IA sobre mim<br>`,
         about: () => `<br><span class="it-pr">About :: Gui Braga</span>
   Nome     : Guilherme Ferreira Braga
@@ -3714,18 +3725,43 @@
         });
       }
 
-      function handleForm(e) {
+      // Envio de formulário funcional via FormSubmit usando fetch (sem recarregar a página)
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", function (e) {
         e.preventDefault();
-        const btn = document.getElementById("formBtn"),
-          orig = btn.textContent;
-        btn.textContent = "Enviado! ✓";
-        btn.style.background = "#10B981";
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.style.background = "";
-          e.target.reset();
-        }, 3000);
-      }
+
+        const btn = document.getElementById("formBtn");
+        const origText = btn.textContent;
+        btn.textContent = "Enviando...";
+
+        const formData = new FormData(this);
+
+        fetch("https://formsubmit.co/ajax/contatoguilhermebraga16@gmail.com", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            btn.textContent = "Enviado! ✓";
+            btn.style.background = "#10B981";
+            setTimeout(() => {
+              btn.textContent = origText;
+              btn.style.background = "";
+              form.reset();
+            }, 3000);
+          })
+          .catch((error) => {
+            btn.textContent = "Erro ao enviar";
+            btn.style.background = "#ef4444";
+            setTimeout(() => {
+              btn.textContent = origText;
+              btn.style.background = "";
+            }, 3000);
+          });
+      });
 
       document.addEventListener("DOMContentLoaded", () => {
         applyLang();

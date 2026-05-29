@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Projetos · Gui Braga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/Zz8ZMj7G/logo.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --bg: #121212;
+        --bg2: #1e1e1e;
+        --bg3: #252525;
+        --red: #ef4444;
+        --red2: #ff6b6b;
+        --red3: rgba(239, 68, 68, 0.15);
+        --red-border: rgba(239, 68, 68, 0.35);
+        --text: #ffffff;
+        --text2: #e5e5e5;
+        --muted: #b3b3b3;
+        --muted2: #999999;
+        --border: rgba(255, 255, 255, 0.1);
+        --font: "DM Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", monospace;
+        --display: "Bebas Neue", sans-serif;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font);
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      header {
+        padding: 2rem 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg2);
+      }
+      .back-btn {
+        color: var(--muted);
+        text-decoration: none;
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.2s;
+      }
+      .back-btn:hover {
+        color: var(--red);
+      }
+      .nav-lang {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.72rem;
+        font-family: var(--mono);
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .nav-lang:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .main-title {
+        font-family: var(--display);
+        font-size: clamp(3rem, 8vw, 5rem);
+        letter-spacing: 0.02em;
+        color: var(--text);
+        text-align: center;
+        margin: 4rem 6% 1rem;
+      }
+      .main-title em {
+        color: var(--red);
+        font-style: normal;
+      }
+      .subtitle {
+        text-align: center;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto 4rem;
+        padding: 0 6%;
+        font-size: 1.05rem;
+      }
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        padding: 0 6% 6rem;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .pj-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .pj-card.vis {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .pj-card:hover {
+        border-color: var(--red-border);
+        transform: translateY(-5px);
+      }
+      .pj-thumb {
+        height: 160px;
+        background: linear-gradient(
+          135deg,
+          rgba(239, 68, 68, 0.1),
+          rgba(0, 0, 0, 0.5)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+      }
+      .pj-thumb-num {
+        font-family: var(--display);
+        font-size: 6rem;
+        color: rgba(239, 68, 68, 0.08);
+        position: relative;
+        z-index: 1;
+      }
+      .pj-body {
+        padding: 1.6rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .pj-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.7rem;
+      }
+      .pj-name {
+        font-family: var(--display);
+        font-size: 1.6rem;
+        letter-spacing: 0.03em;
+      }
+      .pj-status {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        padding: 0.18rem 0.55rem;
+        border-radius: 4px;
+        background: var(--red3);
+        color: var(--red);
+        border: 1px solid var(--red-border);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .pj-desc {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        flex: 1;
+      }
+      .pj-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+      .pj-tags {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+      .pj-tag {
+        font-size: 0.72rem;
+        color: var(--muted2);
+        border: 1px solid var(--border);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-family: var(--mono);
+      }
+      .pj-link {
+        font-size: 0.82rem;
+        color: var(--red);
+        text-decoration: none;
+        font-weight: 700;
+        font-family: var(--mono);
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: opacity 0.2s;
+      }
+      .pj-link:hover {
+        opacity: 0.75;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="back-btn"
+        >← <span data-t="back">Voltar ao Portfólio</span></a
+      >
+      <button class="nav-lang" onclick="toggleLang()" id="langBtn">
+        🇧🇷 PT
+      </button>
+    </header>
+
+    <main>
+      <h1 class="main-title" data-t="title">Todos os <em>Projetos</em></h1>
+      <p class="subtitle" data-t="sub">
+        Uma galeria completa contendo aplicações, ferramentas e sistemas que
+        desenvolvi ao longo da minha jornada.
+      </p>
+
+      <div class="proj-grid" id="container-projetos"></div>
+    </main>
+
+    <script>
+      // ==========================================
+      // ARRAYS DE PROJETOS - ADICIONE NOVOS AQUI!
+      // ==========================================
+      const PROJETOS = [
+        {
+          nome: "Nivro",
+          status: "MOBILE",
+          descPt:
+            "Sistema de gestão financeira mobile focado em empoderar o usuário no controle do próprio dinheiro, utilizando inteligência artificial integrada e arquitetura Open Finance.",
+          descEn:
+            "Mobile financial management system focused on empowering the user to control their own money, using integrated artificial intelligence and Open Finance architecture.",
+          tags: ["React Native", "Node.js", "IA"],
+          linkTextPt: "Detalhes em breve ↗",
+          linkTextEn: "Details soon ↗",
+          url: "#",
+        },
+        {
+          nome: "Zentry",
+          status: "WEB",
+          descPt:
+            "Aplicação web construída para otimização de rotina, estudos e foco utilizando a técnica Pomodoro.",
+          descEn:
+            "Web application built for routine optimization, studies and focus using the Pomodoro technique.",
+          tags: ["React", "Vercel"],
+          linkTextPt: "Acessar ↗",
+          linkTextEn: "Access ↗",
+          url: "https://usezentry.vercel.app",
+        },
+        {
+          nome: "HexColor",
+          status: "TOOL",
+          descPt:
+            "Plataforma premium para programadores e designers encontrarem e gerarem as melhores paletas e tons.",
+          descEn:
+            "Premium platform for programmers and designers to find and generate the best palettes and tones.",
+          tags: ["Frontend", "Vercel"],
+          linkTextPt: "Acessar ↗",
+          linkTextEn: "Access ↗",
+          url: "https://hexcolorultra.vercel.app",
+        },
+        {
+          nome: "StheNutriCare",
+          status: "APP",
+          descPt:
+            "Aplicativo completo de gestão focado em profissionais da área de nutrição e acompanhamento de pacientes.",
+          descEn:
+            "Complete management application focused on nutrition professionals and patient monitoring.",
+          tags: ["Node.js", "MySQL", "React Native"],
+          linkTextPt: "GitHub ↗",
+          linkTextEn: "GitHub ↗",
+          url: "https://github.com/GuiBragz/Sthe_NutriCare",
+        },
+        // Para adicionar um novo projeto, copie o modelo abaixo e cole aqui antes do colchete de fechamento:
+        /*
+        ,{
+          nome: "Nome do Projeto",
+          status: "WEB / MOBILE / TOOL",
+          descPt: "Descrição do projeto em português.",
+          descEn: "Description of the project in English.",
+          tags: ["Tag1", "Tag2"],
+          linkTextPt: "Acessar ↗",
+          linkTextEn: "Access ↗",
+          url: "https://link-do-seu-projeto.com"
+        }
+        */
+      ];
+
+      const T = {
+        pt: {
+          back: "Voltar ao Portfólio",
+          title: "Todos os <em>Projetos</em>",
+          sub: "Uma galeria completa contendo aplicações, ferramentas e sistemas que desenvolvi ao longo da minha jornada.",
+        },
+        en: {
+          back: "Back to Portfolio",
+          title: "All <em>Projects</em>",
+          sub: "A complete gallery containing applications, tools, and systems I developed along my journey.",
+        },
+      };
+
+      let lang = "pt";
+
+      function renderProjetos() {
+        const container = document.getElementById("container-projetos");
+        container.innerHTML = "";
+
+        PROJETOS.forEach((proj, idx) => {
+          const num = String(idx + 1).padStart(2, "0");
+          const desc = lang === "pt" ? proj.descPt : proj.descEn;
+          const linkText = lang === "pt" ? proj.linkTextPt : proj.linkTextEn;
+
+          let tagsHtml = "";
+          proj.tags.forEach((tag) => {
+            tagsHtml += `<span class="pj-tag">${tag}</span>`;
+          });
+
+          const card = document.createElement("div");
+          card.className = "pj-card";
+          card.innerHTML = `
+            <div class="pj-thumb">
+              <div class="pj-thumb-num">${num}</div>
+            </div>
+            <div class="pj-body">
+              <div class="pj-head">
+                <span class="pj-name">${proj.nome}</span>
+                <span class="pj-status">${proj.status}</span>
+              </div>
+              <p class="pj-desc">${desc}</p>
+              <div class="pj-foot">
+                <div class="pj-tags">${tagsHtml}</div>
+                <a href="${proj.url}" target="_blank" class="pj-link">${linkText}</a>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+
+          // Efeito cascata suave para revelar os cards
+          setTimeout(() => {
+            card.classList.add("vis");
+          }, idx * 100);
+        });
+      }
+
+      function applyLang() {
+        document.querySelectorAll("[data-t]").forEach((el) => {
+          const k = el.dataset.t;
+          if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+        });
+        document.getElementById("langBtn").innerHTML =
+          lang === "pt" ? "🇧🇷 PT" : "🇺🇸 EN";
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+        renderProjetos();
+      }
+
+      function toggleLang() {
+        lang = lang === "pt" ? "en" : "pt";
+        applyLang();
+      }
+
+      document.addEventListener("DOMContentLoaded", applyLang);
+    </script>
+  </body>
+</html>
