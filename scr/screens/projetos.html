@@ -108,10 +108,69 @@
         text-align: center;
         color: var(--muted);
         max-width: 600px;
-        margin: 0 auto 4rem;
+        margin: 0 auto 3rem;
         padding: 0 6%;
         font-size: 1.05rem;
       }
+
+      /* --- FILTROS E BUSCA --- */
+      .filters-container {
+        display: flex;
+        gap: 1rem;
+        max-width: 1300px;
+        margin: 0 auto 3rem;
+        padding: 0 6%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .search-box {
+        position: relative;
+        flex: 1;
+        min-width: 250px;
+        max-width: 500px;
+      }
+      .search-box input {
+        width: 100%;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.8rem 1rem 0.8rem 2.5rem;
+        color: var(--text);
+        font-family: var(--font);
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .search-box input:focus {
+        border-color: var(--red-border);
+      }
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        opacity: 0.5;
+      }
+      .filter-select {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.8rem 1.5rem;
+        color: var(--text);
+        font-family: var(--font);
+        font-size: 0.95rem;
+        outline: none;
+        cursor: pointer;
+        appearance: none;
+        min-width: 180px;
+        transition: border-color 0.2s;
+      }
+      .filter-select:focus,
+      .filter-select:hover {
+        border-color: var(--red-border);
+      }
+
       .proj-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -131,6 +190,7 @@
         flex-direction: column;
         opacity: 0;
         transform: translateY(20px);
+        cursor: pointer;
       }
       .pj-card.vis {
         opacity: 1;
@@ -139,6 +199,7 @@
       .pj-card:hover {
         border-color: var(--red-border);
         transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       }
       .pj-thumb {
         height: 160px;
@@ -226,8 +287,15 @@
         gap: 0.3rem;
         transition: opacity 0.2s;
       }
-      .pj-link:hover {
+      .pj-card:hover .pj-link {
         opacity: 0.75;
+      }
+      .no-results {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 3rem;
+        color: var(--muted);
+        font-family: var(--mono);
       }
     </style>
   </head>
@@ -248,75 +316,82 @@
         desenvolvi ao longo da minha jornada.
       </p>
 
+      <div class="filters-container">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar por nome ou tecnologia..."
+            data-t="search_placeholder"
+          />
+        </div>
+        <select id="filterSelect" class="filter-select">
+          <option value="ALL" data-t="filter_all">Todas as Categorias</option>
+          <option value="MOBILE">Mobile</option>
+          <option value="WEB">Web</option>
+          <option value="APP">App</option>
+          <option value="TOOL">Ferramentas (Tools)</option>
+        </select>
+      </div>
+
       <div class="proj-grid" id="container-projetos"></div>
     </main>
 
     <script>
-      // ==========================================
-      // ARRAYS DE PROJETOS - ADICIONE NOVOS AQUI!
-      // ==========================================
       const PROJETOS = [
         {
+          id: "nivro",
           nome: "Nivro",
           status: "MOBILE",
+          repo: "GuiBragz/Nivro",
           descPt:
             "Sistema de gestão financeira mobile focado em empoderar o usuário no controle do próprio dinheiro, utilizando inteligência artificial integrada e arquitetura Open Finance.",
           descEn:
             "Mobile financial management system focused on empowering the user to control their own money, using integrated artificial intelligence and Open Finance architecture.",
           tags: ["React Native", "Node.js", "IA"],
-          linkTextPt: "Detalhes em breve ↗",
-          linkTextEn: "Details soon ↗",
-          url: "#",
+          linkTextPt: "Ver detalhes ↗",
+          linkTextEn: "View details ↗",
         },
         {
+          id: "zentry",
           nome: "Zentry",
           status: "WEB",
+          repo: "GuiBragz/Zentry",
           descPt:
             "Aplicação web construída para otimização de rotina, estudos e foco utilizando a técnica Pomodoro.",
           descEn:
             "Web application built for routine optimization, studies and focus using the Pomodoro technique.",
           tags: ["React", "Vercel"],
-          linkTextPt: "Acessar ↗",
-          linkTextEn: "Access ↗",
-          url: "https://usezentry.vercel.app",
+          linkTextPt: "Ver detalhes ↗",
+          linkTextEn: "View details ↗",
         },
         {
+          id: "hexcolor",
           nome: "HexColor",
           status: "TOOL",
+          repo: "GuiBragz/HexColor",
           descPt:
             "Plataforma premium para programadores e designers encontrarem e gerarem as melhores paletas e tons.",
           descEn:
             "Premium platform for programmers and designers to find and generate the best palettes and tones.",
           tags: ["Frontend", "Vercel"],
-          linkTextPt: "Acessar ↗",
-          linkTextEn: "Access ↗",
-          url: "https://hexcolorultra.vercel.app",
+          linkTextPt: "Ver detalhes ↗",
+          linkTextEn: "View details ↗",
         },
         {
+          id: "nutricare",
           nome: "StheNutriCare",
           status: "APP",
+          repo: "GuiBragz/Sthe_NutriCare",
           descPt:
             "Aplicativo completo de gestão focado em profissionais da área de nutrição e acompanhamento de pacientes.",
           descEn:
             "Complete management application focused on nutrition professionals and patient monitoring.",
           tags: ["Node.js", "MySQL", "React Native"],
-          linkTextPt: "GitHub ↗",
-          linkTextEn: "GitHub ↗",
-          url: "https://github.com/GuiBragz/Sthe_NutriCare",
+          linkTextPt: "Ver detalhes ↗",
+          linkTextEn: "View details ↗",
         },
-        // Para adicionar um novo projeto, copie o modelo abaixo e cole aqui antes do colchete de fechamento:
-        /*
-        ,{
-          nome: "Nome do Projeto",
-          status: "WEB / MOBILE / TOOL",
-          descPt: "Descrição do projeto em português.",
-          descEn: "Description of the project in English.",
-          tags: ["Tag1", "Tag2"],
-          linkTextPt: "Acessar ↗",
-          linkTextEn: "Access ↗",
-          url: "https://link-do-seu-projeto.com"
-        }
-        */
       ];
 
       const T = {
@@ -324,21 +399,59 @@
           back: "Voltar ao Portfólio",
           title: "Todos os <em>Projetos</em>",
           sub: "Uma galeria completa contendo aplicações, ferramentas e sistemas que desenvolvi ao longo da minha jornada.",
+          search_placeholder: "Buscar por nome ou tecnologia...",
+          filter_all: "Todas as Categorias",
+          no_results: "Nenhum projeto encontrado com esses filtros. 👾",
         },
         en: {
           back: "Back to Portfolio",
           title: "All <em>Projects</em>",
           sub: "A complete gallery containing applications, tools, and systems I developed along my journey.",
+          search_placeholder: "Search by name or tech...",
+          filter_all: "All Categories",
+          no_results: "No projects found matching these filters. 👾",
         },
       };
 
       let lang = "pt";
+      let searchTerm = "";
+      let currentFilter = "ALL";
+
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        searchTerm = e.target.value.toLowerCase();
+        renderProjetos();
+      });
+
+      document
+        .getElementById("filterSelect")
+        .addEventListener("change", (e) => {
+          currentFilter = e.target.value;
+          renderProjetos();
+        });
 
       function renderProjetos() {
         const container = document.getElementById("container-projetos");
         container.innerHTML = "";
 
-        PROJETOS.forEach((proj, idx) => {
+        const projetosFiltrados = PROJETOS.filter((proj) => {
+          const matchName = proj.nome.toLowerCase().includes(searchTerm);
+          const matchTags = proj.tags.some((tag) =>
+            tag.toLowerCase().includes(searchTerm),
+          );
+          const matchSearch = matchName || matchTags;
+
+          const matchCategory =
+            currentFilter === "ALL" || proj.status === currentFilter;
+
+          return matchSearch && matchCategory;
+        });
+
+        if (projetosFiltrados.length === 0) {
+          container.innerHTML = `<div class="no-results">${T[lang].no_results}</div>`;
+          return;
+        }
+
+        projetosFiltrados.forEach((proj, idx) => {
           const num = String(idx + 1).padStart(2, "0");
           const desc = lang === "pt" ? proj.descPt : proj.descEn;
           const linkText = lang === "pt" ? proj.linkTextPt : proj.linkTextEn;
@@ -350,6 +463,11 @@
 
           const card = document.createElement("div");
           card.className = "pj-card";
+
+          card.onclick = function () {
+            window.location.href = `projeto.html?id=${proj.id}`;
+          };
+
           card.innerHTML = `
             <div class="pj-thumb">
               <div class="pj-thumb-num">${num}</div>
@@ -362,13 +480,12 @@
               <p class="pj-desc">${desc}</p>
               <div class="pj-foot">
                 <div class="pj-tags">${tagsHtml}</div>
-                <a href="${proj.url}" target="_blank" class="pj-link">${linkText}</a>
+                <span class="pj-link">${linkText}</span>
               </div>
             </div>
           `;
           container.appendChild(card);
 
-          // Efeito cascata suave para revelar os cards
           setTimeout(() => {
             card.classList.add("vis");
           }, idx * 100);
@@ -378,7 +495,13 @@
       function applyLang() {
         document.querySelectorAll("[data-t]").forEach((el) => {
           const k = el.dataset.t;
-          if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+          if (T[lang][k] !== undefined) {
+            if (el.tagName === "INPUT") {
+              el.placeholder = T[lang][k];
+            } else {
+              el.innerHTML = T[lang][k];
+            }
+          }
         });
         document.getElementById("langBtn").innerHTML =
           lang === "pt" ? "🇧🇷 PT" : "🇺🇸 EN";
